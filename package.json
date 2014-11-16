@@ -43,6 +43,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "^0.4.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-forever":"latest",
     "grunt-env": "^0.4.1",
     "grunt-nodemon": "0.2.1",
     "load-grunt-tasks": "^0.4.0",
