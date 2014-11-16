@@ -10,27 +10,6 @@ angular.module('mean.mean-admin').controller('AdminController', ['$scope', 'Glob
         
         // Default hard coded menu items for main menu
         var defaultAdminMenu = [
-//            {
-//            'roles': ['admin'],
-//            'title': 'MODULES',
-//            'link': 'modules',
-//            'icon': icons + 'modules.png'
-//        }, {
-//            'roles': ['admin'],
-//            'title': 'THEMES',
-//            'link': 'themes',
-//            'icon': icons + 'themes.png'
-//        }, {
-//            'roles': ['admin'],
-//            'title': 'SETTINGS',
-//            'link': 'settings',
-//            'icon': icons + 'settings.png'
-//        }, {
-//            'roles': ['admin'],
-//            'title': 'USERS',
-//            'link': 'users',
-//            'icon': icons + 'users.png'
-//        },
             {
             'roles': ['admin'],
             'title': '审批',
