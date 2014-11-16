@@ -1,0 +1,31 @@
+<section data-ng-controller="ManageController" class="admin-modules">
+    <button class="btn btn-primary" ng-click="updates(2)">批准</button>
+    <button class="btn btn-danger" ng-click="updates(3)">拒绝</button>
+    <hr />
+    <table ng-table="userTable" show-filter="true" class="table" >
+        <tr ng-repeat="user in $data">
+            <td width="30" style="text-align: left"  header="'ng-table/headers/checkbox.html'">
+                <input type="checkbox" ng-model="checkboxes.items[user._id]" />
+            </td>
+            <td data-title="'姓名'" filter="{ 'name': 'text'}">
+                {{user.name}}
+            </td>
+            <td data-title="'学号'" filter="{ 'number': 'text'}">
+                {{user.number}}
+            </td>
+            <td data-title="'邮箱'" filter="{ 'email': 'text'}">
+                {{user.email}}
+            </td>
+            <td data-title="'电话'" filter="{ 'phone': 'text'}">
+                {{user.phone}}
+            </td>
+            <!--<td data-title="'操作'">
+                <button class="btn btn-primary" ng-click="update(2, user._id)">批准</button>
+                <button class="btn btn-danger" ng-click="update(3, user._id)">拒绝</button>
+            </td>-->
+        </tr>
+    </table>
+    <script type="text/ng-template" id="ng-table/headers/checkbox.html">
+        <input type="checkbox" ng-model="checkboxes.checked" id="select_all" name="filter-checkbox" value="" />
+    </script>
+</section>

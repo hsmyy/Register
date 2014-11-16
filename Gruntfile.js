@@ -69,7 +69,7 @@ module.exports = function(grunt) {
     },
     nodemon: {
       dev: {
-        script: 'server.js',
+        script: 'server6.js',
         options: {
           args: [],
           ignore: ['node_modules/**'],
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
       options: {
         reporter: 'spec',
         require: [
-          'server.js',
+          'server6.js',
           function() {
             require('meanio/lib/util').preload(__dirname + '/packages/**/server', 'model');
           }
@@ -107,6 +107,14 @@ module.exports = function(grunt) {
       unit: {
         configFile: 'karma.conf.js'
       }
+    },
+    forever: {
+      server:{
+        options: {
+          index: 'server6.js',
+              logDir: 'logs'
+        }
+      }
     }
   });
 
@@ -115,11 +123,12 @@ module.exports = function(grunt) {
 
   //Default task(s).
   if (process.env.NODE_ENV === 'production') {
-    grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'concurrent']);
+    grunt.registerTask('default', ['clean', 'cssmin', 'uglify', 'forever:server:start']);
   } else {
     grunt.registerTask('default', ['clean', 'jshint', 'csslint', 'concurrent']);
   }
 
+  grunt.registerTask('run', ['clean', 'cssmin', 'uglify', 'forever:server:start']);
   //Test task.
   grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 
